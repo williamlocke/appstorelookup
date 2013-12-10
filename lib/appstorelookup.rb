@@ -102,9 +102,10 @@ module Appstorelookup
         end
       end
       
-      app = {}
+      app = nil
       puts "Done"
       if itunes_metadata
+        app = {}
         puts "Found my stuff"
         app['apple_id'] = itunes_metadata['trackId']
         app['app_store_link'] = itunes_metadata['trackViewUrl']
