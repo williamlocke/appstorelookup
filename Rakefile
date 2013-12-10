@@ -17,10 +17,11 @@ Jeweler::Tasks.new do |gem|
   gem.name = "appstorelookup"
   gem.homepage = "http://github.com/williamlocke/appstorelookup"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Search app store meta data.}
+  gem.description = %Q{Looks up app store app information based on search terms, combined with unique app identifier such as bundleId or AppleId}
   gem.email = "williamlocke@me.com"
   gem.authors = ["williamlocke"]
+  gem.executables = ["appstorelookup"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -32,13 +33,13 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.rcov_opts << '--exclude "gems/*"'
-end
+# require 'rcov/rcovtask'
+# Rcov::RcovTask.new do |test|
+#   test.libs << 'test'
+#   test.pattern = 'test/**/test_*.rb'
+#   test.verbose = true
+#   test.rcov_opts << '--exclude "gems/*"'
+# end
 
 task :default => :test
 
