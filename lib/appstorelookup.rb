@@ -23,7 +23,6 @@ module Appstorelookup
 	    
 # 	    tp sales, :index, {:name => {:width => 100}}, :downloads, :revenue, :revenue_per_download, :purchases_per_download
 	  end
-
   end
 
   class Appstorelookup
@@ -108,10 +107,12 @@ module Appstorelookup
         app = {}
         puts "Found my stuff"
         app['apple_id'] = itunes_metadata['trackId']
+        app['name'] = itunes_metadata['trackName']
         app['app_store_link'] = itunes_metadata['trackViewUrl']
         app['iphone_screenshots'] = itunes_metadata['screenshotUrls']
         app['ipad_screenshots'] = itunes_metadata['ipadScreenshotUrls']
         app['icon_image_link'] = itunes_metadata['artworkUrl512']
+        app['icon_image_link_100'] = itunes_metadata['artworkUrl100']
         app['sku'] = appfigures_metadata['sku']
       end
       

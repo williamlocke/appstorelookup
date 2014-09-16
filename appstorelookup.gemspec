@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "appstorelookup.gemspec",
     "bin/appstorelookup",
     "lib/appstorelookup.rb",
     "test/helper.rb",
