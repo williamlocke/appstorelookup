@@ -25,24 +25,6 @@ module Appstorelookup
     end
   end
 
-  def self.apple_id_from_app_store_link(app_store_link)
-    start_token = "/id"
-    end_token = "?"
-    return app_store_link[/#{start_token}(.*?)#{end_token}/m, 1]
-  end
-
-  def self.app_hash_from_itunes_metadata(itunes_metadata)
-    return nil if itunes_metadata.nil?
-    app = {}
-    app['apple_id'] = itunes_metadata['trackId']
-    app['name'] = itunes_metadata['trackName']
-    app['app_store_link'] = itunes_metadata['trackViewUrl']
-    app['iphone_screenshots'] = itunes_metadata['screenshotUrls']
-    app['ipad_screenshots'] = itunes_metadata['ipadScreenshotUrls']
-    app['icon_image_link'] = itunes_metadata['artworkUrl512']
-    app['icon_image_link_100'] = itunes_metadata['artworkUrl100']
-    return app
-  end
 
   class Appstorelookup
     # @todo: make caching optional
@@ -89,6 +71,23 @@ module Appstorelookup
 
       return nil, nil
 
+    end
+
+    def self.apple_id_from_app_store_link(app_store_link)
+      return app_store_link[/\/id(.*?)\?/m, 1]
+    end
+
+    def self.app_hash_from_itunes_metadata(itunes_metadata)
+      return nil if itunes_metadata.nil?
+      app = {}
+      app['apple_id'] = itunes_metadata['trackId']
+      app['name'] = itunes_metadata['trackName']
+      app['app_store_link'] = itunes_metadata['trackViewUrl']
+      app['iphone_screenshots'] = itunes_metadata['screenshotUrls']
+      app['ipad_screenshots'] = itunes_metadata['ipadScreenshotUrls']
+      app['icon_image_link'] = itunes_metadata['artworkUrl512']
+      app['icon_image_link_100'] = itunes_metadata['artworkUrl100']
+      return app
     end
 
     def search_with_app_store_link(app_store_link)
