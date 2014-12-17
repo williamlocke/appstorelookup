@@ -97,6 +97,11 @@ module Appstorelookup
       return Appstorelookup.app_hash_from_itunes_metadata(itunes_metadata)
     end
 
+    def search_with_apple_id(apple_id)
+      return nil if not apple_id
+      itunes_metadata = self.itunes_lookup(apple_id)
+      return Appstorelookup.app_hash_from_itunes_metadata(itunes_metadata)
+    end
 
     def search(options)
 
