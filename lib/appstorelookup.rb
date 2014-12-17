@@ -70,7 +70,6 @@ module Appstorelookup
       end
 
       return nil, nil
-
     end
 
     def self.apple_id_from_app_store_link(app_store_link)
@@ -87,6 +86,7 @@ module Appstorelookup
       app['ipad_screenshots'] = itunes_metadata['ipadScreenshotUrls']
       app['icon_image_link'] = itunes_metadata['artworkUrl512']
       app['icon_image_link_100'] = itunes_metadata['artworkUrl100']
+      app['bundle_id'] = itunes_metadata['bundleId']
       return app
     end
 
