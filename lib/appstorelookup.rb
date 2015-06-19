@@ -87,6 +87,7 @@ module Appstorelookup
       app['icon_image_link'] = itunes_metadata['artworkUrl512']
       app['icon_image_link_100'] = itunes_metadata['artworkUrl100']
       app['bundle_id'] = itunes_metadata['bundleId']
+      app['averageUserRatingForCurrentVersion'] = itunes_metadata['averageUserRatingForCurrentVersion']
       return app
     end
 
